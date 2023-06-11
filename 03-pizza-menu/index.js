@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import './index.css';
+
 const pizzaData = [
   {
     name: 'Focaccia',
@@ -48,16 +50,114 @@ const pizzaData = [
 
 function App() {
   return (
-    <div>
-      <h1>Hello Ultimate React!</h1>;
-      <Pizza />
+    <div className='container'>
+      <Header />
+      <Menu />
+      <Footer />
     </div>
   );
 }
 
 // createing other components:
-function Pizza() {
-  return <h2>Pizza</h2>;
+
+function Header() {
+  return (
+    <header className='header'>
+      <h1>Fast React Pizza Co.</h1>
+    </header>
+
+    // a way of styling components:
+    // style={{ color: 'orange', fontSize: '32px', textTransform: 'uppercase' }}
+  );
+}
+function Menu() {
+  const pizzas = pizzaData;
+  // const pizzas = [];
+  const numPizzas = pizzas.length;
+
+  return (
+    <main className='menu'>
+      <h2>Our Menu</h2>
+      {numPizzas > 0 ? (
+        <>
+          <p>
+            Authentic Italian cuisine. 6 creative dishes to choose from. All
+            form our stone oven, all organic, all delicious.
+          </p>
+
+          <ul className='pizzas'>
+            {pizzaData.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p>We're still working on our menu.</p>
+      )}
+
+      {/* <Pizza
+        name='Pizza Spanaci'
+        imgSrc='pizzas/spinaci.jpg'
+        price={10}
+        ingredients='Tomato, mozarella, spanach, and ricotta cheese'
+      />
+
+      <Pizza
+        name='Pizza Funghi'
+        imgSrc='pizzas/funghi.jpg'
+        price={10}
+        ingredients='Tomato, mozarella, spanach, and ricotta cheese'
+      /> */}
+    </main>
+  );
+}
+
+function Pizza({ pizzaObj }) {
+  //if (pizzaObj.soldOut) return null;
+
+  return (
+    <li className={`pizza ${pizzaObj.soldOut ? 'sold-out' : ''}`}>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+      <h3>{pizzaObj.name}</h3>
+      <p>{pizzaObj.ingredients}</p>
+      <span>{pizzaObj.soldOut ? 'SOLD OUT' : pizzaObj.price}</span>
+    </li>
+  );
+}
+
+function Footer() {
+  const hour = new Date().getHours();
+  const openHour = 10;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  console.log(isOpen);
+
+  return (
+    <footer className='footer'>
+      {/* {new Date().toLocaleTimeString()}. We are currently open. */}
+      {isOpen ? (
+        <Order closeHour={closeHour} openHour={openHour} />
+      ) : (
+        <p>
+          We will welcome you between {openHour}:00 and {closeHour}:00
+        </p>
+      )}
+    </footer>
+  );
+  //// or we can create html element manually:
+  // return React.createElement('footer', null, 'We are open!');
+}
+
+function Order({ closeHour, openHour }) {
+  return (
+    <div className='order'>
+      <p>
+        We're open from {openHour}:00 to {closeHour}:00. Come and visit us or
+        order online.
+      </p>
+      <button className='btn'>Order</button>
+    </div>
+  );
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
