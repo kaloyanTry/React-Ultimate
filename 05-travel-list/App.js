@@ -9,11 +9,27 @@ export default function App() {
     setItems((items) => [...items, item]);
   }
 
+  function handleDeletedItem(id) {
+    setItems((items) => items.filter((item) => item.id !== id));
+  }
+
+  function handleToggledItem(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  }
+
   return (
     <div className='app'>
       <Logo />
       <Form onAddItems={handleAddedItems} />
-      <PackingList />
+      <PackingList
+        items={items}
+        onDeleteItem={handleDeletedItem}
+        onToggledItem={handleToggledItem}
+      />
       <Stats />
     </div>
   );
@@ -43,7 +59,7 @@ function Form({ onAddItems }) {
 
   return (
     <form className='add-form' onSubmit={handleSubmit}>
-      <h3>Form section</h3>
+      <h3>What you need for your trip?</h3>
       <select
         value={quantity}
         onChange={(e) => setQuantity(Number(e.target.value))}
@@ -65,12 +81,37 @@ function Form({ onAddItems }) {
   );
 }
 
-function PackingList() {
-  return <h3>PackingList: </h3>;
+function PackingList({ items, onDeleteItem, onToggledItem }) {
+  return (
+    <div className='list'>
+      <ul>
+        {items.map((item) => (
+          <Item
+            item={item}
+            onDeleteItem={onDeleteItem}
+            onToggledItem={onToggledItem}
+            key={item.id}
+          />
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-function Item() {
-  return <h3>Item</h3>;
+function Item({ item, onDeleteItem, onToggledItem }) {
+  return (
+    <li>
+      <input
+        type='checkbox'
+        value={item.packed}
+        onChange={() => onToggledItem(item.id)}
+      />
+      <span style={item.packed ? { textDecoration: 'line-through' } : {}}>
+        {item.quantity} {item.description}
+      </span>{' '}
+      <button onClick={() => onDeleteItem(item.id)}>❌</button>
+    </li>
+  );
 }
 function Stats() {
   return <h3>Stats: </h3>;
