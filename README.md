@@ -7,3 +7,5 @@ Ultimeate React Course
 3. React Counter Date Simple: [counter-date in codesandbox](https://codesandbox.io/s/counterdate-simple-ncvp9y?file=/src/App.js)
 4. React Counter Date V2: [counter-date v2 in codesandbox](https://codesandbox.io/s/counterdate-simple-v2-rq8nq7?file=/src/App.js)
 5. React Flash Cards: [flash-cards](https://codesandbox.io/s/flash-cards-vf4rfw?file=/src/App.js)
+6. React Accordion: [accordion-simple](https://codesandbox.io/s/accordion-simple-tx2vgs)
+7. 
