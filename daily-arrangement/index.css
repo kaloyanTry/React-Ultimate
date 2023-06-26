@@ -31,3 +31,13 @@ code {
   grid-template-rows: 1fr 1fr 3fr 1fr;
   text-align: center;
 }
+
+.output.hr {
+  width: 70%;
+  color: #5e5e5e;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
