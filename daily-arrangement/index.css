@@ -41,3 +41,20 @@ code {
 ul {
   list-style-type: none;
 }
+
+button {
+  background-color: #5e5e5e;
+  color: #fff;
+  border: 2px solid;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 4px;
+  transition-duration: 0.5s;
+}
+
+button:hover {
+  background-color: #fff;
+  color: #1b1b1b;
+}

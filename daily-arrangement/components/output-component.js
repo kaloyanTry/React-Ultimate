@@ -1,4 +1,3 @@
-//import { useState } from 'react';
 import Activity from './activity-component';
 
 export default function OutputComponent({ itemActivities }) {

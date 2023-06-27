@@ -6,11 +6,15 @@ export default function SelectionComponent({ onAddedItemActivity }) {
   const [time, setTime] = useState('08:00');
   const [budget, setBudget] = useState('');
 
-  function takeCurrentTime() {
+  function displayCurrentTimeDate() {
     const currTime = new Date();
     const currHour = currTime.getHours();
     const currMinutes = currTime.getMinutes();
-    const currentTime = `${currHour}:${currMinutes}`;
+
+    const hour = currHour <= 9 ? `0${currHour}` : currHour;
+    const minutes = currMinutes <= 9 ? `0${currMinutes}` : currMinutes;
+
+    const currentTime = `${hour}:${minutes}`;
     const currentDate = currTime.toLocaleDateString('bg-BG');
 
     return `Current time: ${currentTime} on ${currentDate}`;
@@ -23,19 +27,20 @@ export default function SelectionComponent({ onAddedItemActivity }) {
 
     const activityToAdd = { number, description, time, budget, id: Date.now() };
 
-    console.log(activityToAdd);
     onAddedItemActivity(activityToAdd);
 
     setNumber(1);
     setDescription('');
+    setTime('08:00');
+    setBudget('');
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>Activity</h2>
-      <p>{takeCurrentTime()}</p>
+      <p>{displayCurrentTimeDate()}</p>
       <input
-        type='time-local'
+        type='time'
         min='08:00'
         max='22:00'
         value={time}
