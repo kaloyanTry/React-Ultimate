@@ -11,3 +11,4 @@ Ultimate React Course
 7. React Accordion V2: [accordion-v2](https://codesandbox.io/s/accordion-simple-v2-mlcxk2)
 8. React Tip-Calculator: [tip-calculator-simple](https://codesandbox.io/s/tip-calculator-clr2k7)
 9. React Text-Expander: [text-expander](https://codesandbox.io/s/text-expander-tkgvrk)
+10. React Currency Converter: [currency-converter](https://codesandbox.io/s/currency-converter-w3s4gd?file=/src/App.js)
