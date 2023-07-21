@@ -1,0 +1,159 @@
+:root {
+  --color-light: #f1faee;
+  --color-medium: #457b9d;
+  --color-dark: #1d3557;
+
+  --color-accent: #e63946;
+  --color-theme: #a8dadc;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto Condensed', 'Segoe UI', Tahoma, Geneva, Verdana,
+    sans-serif;
+}
+
+body {
+  min-height: 80vh;
+  color: var(--color-light);
+  background-color: var(--color-dark);
+  padding: 2.4rem;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70rem;
+  margin-bottom: 2rem;
+}
+
+.main {
+  width: 70rem;
+  font-size: 3.2rem;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 6rem;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 4.8rem;
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 2.8rem;
+}
+
+p {
+  font-weight: 300;
+  font-size: 1.8rem;
+}
+.btn {
+  margin: 2rem;
+  padding: 1.5rem;
+  color: inherit;
+  font-size: 2.4rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 1rem;
+  background-color: none;
+}
+
+.btn-action {
+  border: none;
+  background-color: var(--color-accent);
+}
+
+.btn-next {
+  background-color: var(--color-dark);
+  border: 2px solid white;
+  color: var(--color-light);
+}
+
+.btn-finish {
+  background-color: var(--color-theme);
+  text-transform: uppercase;
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-option {
+  width: 100%;
+  text-align: left;
+  background-color: none;
+  border: 2px solid white;
+  color: var(--color-dark);
+}
+
+.startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 5rem;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.progress {
+  margin: 4rem 0;
+  display: grid;
+  justify-content: space-between;
+  gap: 1.2rem;
+  grid-template-columns: auto auto;
+  font-size: 1.8rem;
+  color: var(--color-medium);
+}
+progress {
+  webkit-appearance: none;
+  width: 100%;
+  height: 1.2rem;
+  grid-column: 1 / -1;
+}
+
+.finishScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Credit to: https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
+.loader {
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 30px;
+  padding-bottom: 8px;
+  background: linear-gradient(currentColor 0 0) bottom left/0% 3px no-repeat;
+  animation: c2 2s linear infinite;
+}
