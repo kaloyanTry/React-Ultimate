@@ -1,0 +1,28 @@
+{
+  "questions": [
+    {
+      "question": "Which one is the most popular programming language for web development?",
+      "options": ["JavaScript", "Pyton", "C#", "HTML"],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "Which is the most popular JavaScrip Library for SPA?",
+      "options": ["jQuery", "Angular", "React", "Vue"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "Which one is the most popular editor for web development",
+      "options": ["Atom", "Visual Studio Code", "Visual Studio", "Notepad++"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Which langueage we use to style and format web content",
+      "options": ["JavaScript", "C#", "SQL", "CSS"],
+      "correctOption": 3,
+      "points": 10
+    }
+  ]
+}
